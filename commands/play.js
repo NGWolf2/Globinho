@@ -6,11 +6,11 @@ let selectedThumbnailURL;
 
 module.exports = {
   name: "play",
-  description: "come one let's hear some music!!",
+  description: "Toque a música!!",
   permissions: "0x0000000000000800",
   options: [{
-    name: 'name',
-    description: 'Type the name of the music you want to play.',
+    name: 'nome',
+    description: 'Digite o nome da música.',
     type: ApplicationCommandOptionType.String,
     required: true
   }],
@@ -19,7 +19,7 @@ module.exports = {
     try {
 
       const name = interaction.options.getString('name')
-      if (!name) return interaction.reply({ content: `❌ Enter a valid song name.`, ephemeral: true }).catch(e => { });
+      if (!name) return interaction.reply({ content: `❌ Digite um nome valido.`, ephemeral: true }).catch(e => { });
       let res;
       try {
         res = await client.player.search(name, {
@@ -28,7 +28,7 @@ module.exports = {
           interaction
         });
       } catch (e) {
-        return interaction.editReply({ content: `❌ No results` }).catch(e => { });
+        return interaction.editReply({ content: `❌ Sem resultados` }).catch(e => { });
       }
 
       if (!res || !res.length || !res.length > 1) return interaction.reply({ content: `❌ No results`, ephemeral: true }).catch(e => { });
@@ -67,7 +67,7 @@ module.exports = {
           .setCustomId('cancel')
       );
 
-      embed.setDescription(`${maxTracks.map((song, i) => `**${i + 1}**. [${song.name}](${song.url}) | \`${song.uploader.name}\``).join('\n')}\n\n✨Choose a song from below!!`);
+      embed.setDescription(`${maxTracks.map((song, i) => `**${i + 1}**. [${song.name}](${song.url}) | \`${song.uploader.name}\``).join('\n')}\n\nEscolha uma das músicas acima!!`);
 
       let code;
       if (buttons1 && buttons2) {
@@ -82,8 +82,8 @@ module.exports = {
 
         collector.on('collect', async (button) => {
           switch (button.customId) {
-            case 'cancel': {
-              embed.setDescription(`Search interrupted`);
+            case 'cancelar': {
+              embed.setDescription(`Pesquisa interrompida`);
               await interaction.editReply({ embeds: [embed], components: [] }).catch(e => { });
               return collector.stop();
             }
@@ -100,7 +100,7 @@ module.exports = {
                   interaction
                 });
               } catch (e) {
-                await interaction.editReply({ content: `❌ No results!`, ephemeral: true }).catch(e => { });
+                await interaction.editReply({ content: `❌ Sem resultados!`, ephemeral: true }).catch(e => { });
               }
               return collector.stop();
             }
