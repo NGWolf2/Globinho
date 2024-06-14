@@ -21,14 +21,14 @@
 
 
 module.exports = {
-  TOKEN: "",
-  ownerID: ["1004206704994566164", ""],
-  botInvite: "",
+  TOKEN: "MTIyMDExNTUzOTAwNzkwMTgxOA.G2MJB1.20y7Xo2JTzbKl3USt0067usayYIHFtW216seHk",
+  ownerID: ["",826648608325632000""],
+  botInvite: "https://discord.com/oauth2/authorize?client_id=1220115539007901818",
   supportServer: "",
   mongodbURL: "mongodb+srv://shiva:shiva@musicbotyt.ouljywv.mongodb.net/?retryWrites=true&w=majority",
-  status: 'GlaceYT',
+  status: 'Fazendo fofocas',
   commandsDir: './commands',
-  language: "en",
+  language: "pt",
   embedColor: "00fbff",
   errorLog: "",
 
