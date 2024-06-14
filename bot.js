@@ -75,11 +75,11 @@ fs.readdir(config.commandsDir, (err, files) => {
 
 if (config.TOKEN || process.env.TOKEN) {
   client.login(config.TOKEN || process.env.TOKEN).catch((e) => {
-    console.log('TOKEN ERROR❌❌');
-  });
+    console.log('ERRO DE TOKEN❌❌');
+  });TOKEN
 } else {
   setTimeout(() => {
-    console.log('TOKEN ERROR❌❌');
+    console.log('ERRO DE TOKEN❌❌');
   }, 2000);
 }
 
